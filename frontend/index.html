@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>3rd World</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="assets/image/Favicon.ico">
+    <script src="index.js" defer></script>
+</head>
+
+<body>
+
+<div id="layout">
+
+    <!-- HEADER -->
+    <header id="mainHeader">
+       <div id = "logo-and-status">
+            <div id="logo">
+                <a href = "index.html"><img src = "../assets/images/Logo.png" alt="Logo" width="250px" height="250px" /></a>
+            </div>
+            <div id="game-status">
+                <div id="game-year">Year: 1</div>
+                <div id="game-day">Day: Prelaunch</div>
+                <div id="game-time">Time: --:-- GMT</div>
+            </div>
+        </div>
+
+
+        <nav id="top-nav">
+            <button onclick="window.location.href='index.html'">Home</button>
+            <div class="dropdown">
+                <button id="activities-btn" class="dropbtn">Activities</button>
+                <div class="dropdown-content">
+                    <button>Fight</button>
+                    <button>-</button>
+                    <button>-</button>
+                    <button>-</button>
+                </div>
+            </div>
+            <button id="work">Work</button>
+            <div class="dropdown">
+                <button id="markets-btn" class="dropbtn">Markets</button>
+                    <div class="dropdown-content">
+                        <button>Local Market</button>
+                        <button>Global Market</button>
+                        <button>Financial Market</button>
+                        <button>Stock Market</button>
+                    </div>
+                </div>
+            <button>Government</button>
+            <button>Companies</button>
+            <button id="account">Logout</button>
+        </nav>
+        <nav id="top-nav-right">
+            <button id="help">Help</button>
+            <button id="wiki">Wiki</button>
+            <button id="account-panel">Account</button>
+        </nav>
+
+   
+        <div id="statsPanel">
+            <div>
+                <span class="statLabel">Timer:</span>
+                <span class="statValue" id="timerValue">0<span> Seconds</span></span>
+            </div>
+        </div>
+
+
+
+    </header>
+    <aside id="profile-nav">
+        <img class = "profile-picture" src = "../assets/images/DefaultProfile.jfif" width="250px" height="250px">
+        <h3 id = "username">YoungKrypt</h3>
+        <ul>
+            <li>Health: 100/100</li>
+            <li>Armor: 0/100</li>
+            <li>Level: 1</li>
+            <li>Work Ratings: 0 / 1000</li>
+            <li>Nationality: Canadian</li>
+            <li>Money: $0</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <!-- SIDEBAR -->
+        <div id="side-nav">
+            <h3>Character</h3>
+            <ul>
+                <li><a href = "stats.html">Stats</a></li>
+                <li><a href = "inventory.html">Inventory</a></li>
+                <li><a href = "myCompanies.html">Companies</a></li>
+                <li><a href = "education.html">Education</a></li>
+                <li>Skills</li>
+                <li>Currencies</li>
+                <li>Assets</li>
+            </ul>
+        </div>
+    </aside>
+
+
+
+    <!-- MAIN CONTENT -->
+    <main id="content">
+        <h3 id="regionName">-- TestHome --</h3> <!-- JS will overwrite this -->
+        <h4 id="districtName">District Name</h4>
+        <p id="storyText">Welcome to Profit Kingdom.</p>
+    </main>
+
+
+</div>
+
+<footer>
+    Property of YoungKrypt in affiliation with HIVE
+</footer>
+
+</body>
+</html>
