@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>3rd World</title>
+    <title>Profit Kingdom v.0.005</title>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../assets/images/Favicon.ico">
     <script src="js/core.js" defer></script>
-    <script src="js/index.js" defer></script>
+    <script src="js/work-btn.js" defer></script>
 </head>
 
 <body>
@@ -28,7 +28,7 @@
         </div>
 
 
-        <nav id="top-nav">
+     <nav id="top-nav">
             <button id = "goHome">Home</button>
             <div class="dropdown">
                 <button id="activities-btn" class="dropbtn">Activities</button>
@@ -70,60 +70,82 @@
 
 
     </header>
-    <div id = "bodyLayout">
-        <aside id="profile-nav">
-            <img class = "profile-picture" src = "../assets/images/DefaultProfile.jfif" width="250px" height="250px">
-            <h3 id = "username">YoungKrypt</h3>
+    <aside id="profile-nav">
+        <img class = "profile-picture" src = "../assets/images/DefaultProfile.jfif" width="250px" height="250px">
+        <h3 id = "username">YoungKrypt</h3>
+        <ul>
+            <li>Energy: 100%</li>
+            <li>Health: 100/100</li>
+            <li>Armor: 0/100</li>
+            <li>Level: 1</li>
+            <li>Work Ratings: 0 / 1000</li>
+            <li>Nationality: Canadian</li>
+            <li>Money: $0.00</li>
+            <li>Credits: 0</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <!-- SIDEBAR -->
+        <div id="side-nav">
+            <h3>Character</h3>
             <ul>
-                <li>Energy: 100%</li>
-                <li>Health: 100/100</li>
-                <li>Armor: 0/100</li>
-                <li>Level: 1</li>
-                <li>Work Ratings: 0 / 1000</li>
-                <li>Nationality: Canadian</li>
-                <li>Money: $0.00</li>
-                <li>Credits: 0</li>
+                <li><a href = "stats.html">Stats</a></li>
+                <li><a href = "inventory.html">Inventory</a></li>
+                <li><a href = "myCompanies.html">Companies</a></li>
+                <li><a href = "education.html">Education</a></li>
+                <li>Skills</li>
+                <li>Currencies</li>
+                <li>Assets</li>
             </ul>
-            <br>
-            <hr>
-            <br>
-            <!-- SIDEBAR -->
-            <div id="side-nav">
-                <h3>Character</h3>
-                <ul>
-                    <li><a href = "stats.html">Stats</a></li>
-                    <li><a href = "inventory.html">Inventory</a></li>
-                    <li><a href = "myCompanies.html">Companies</a></li>
-                    <li><a href = "education.html">Education</a></li>
-                    <li>Skills</li>
-                    <li>Currencies</li>
-                    <li>Assets</li>
-                </ul>
+        </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main id="content">
+        <h3>Create Company</h3>
+
+        <div id="companies-list">
+
+            <div class="company-card" data-company="milk" data-wage="15" data-duration="6">
+            <img class="company-picture" src="../assets/images/Companies/MilkFarm.jpg" alt="Milk Farm">
+            
+            <h4 class="company-name">Milk Farm</h4>
+            
+            <p class="company-wage">
+                Wage: <span class="wage-value">2</span>
+            </p>
+            
+            <p class="company-duration">Duration: 6 Hours</p>
+
+            <button class="create-company-btn">Create</button>
             </div>
-        </aside>
 
-  
+            <div class="company-card" data-company="lumber" data-wage="15" data-duration="6">
+            <img class="company-picture" src="../assets/images/Companies/LumberYard.jpg" alt="LumberYard">
+            
+            <h4 class="company-name">Lumber Yard</h4>
+            
+            <p class="company-wage">
+                Wage: <span class="wage-value">2</span>
+            </p>
+            
+            <p class="company-duration">Duration: 6 Hours</p>
 
-        <!-- MAIN CONTENT -->
-        <main id="content">
-            <h3 id="regionName">-- TestHome --</h3> <!-- JS will overwrite this -->
-            <h4 id="districtName">District Name</h4>
-            <p id="storyText">Welcome to Profit Kingdom.</p>
-        </main>
-        
-        <aside id="right-sidebar">
-            <h3>World Chat:</h3>
-            </p>Make some trades world-wide or talk but no NSFW Content</p>
-            <hr>
-        </aside>
+            <button class="create-company-btn">Create</button>
+            </div>
 
-    </div>
+        </div>
+    </main>
+
+
 
 </div>
-</body>
+
 <footer>
     Property of YoungKrypt in affiliation with HIVE
 </footer>
 
-
+</body>
 </html>

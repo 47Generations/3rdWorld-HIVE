@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Profit Kingdom v.0.005</title>
+    <meta charset="UTF-8"/>
+    <link rel="stylesheet" href="css/style.css"/>
+    <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
+    <link rel="icon" type="image/png" href="../assets/images/Favicon.ico">
+    <script src="js/core.js" defer></script>
+    <script src="js/work.js" defer></script>
+</head>
+
+<body>
+
+<div id="layout">
+
+    <!-- HEADER -->
+    <header id="mainHeader">
+      <div id = "logo-and-status">
+            <div id="logo">
+                <a href = "index.html"><img src = "../assets/images/Logo.png" alt="Logo" width="250px" height="250px" /></a>
+            </div>
+            <div id="game-status">
+                <div id="game-year">Year: 1</div>
+                <div id="game-day">Day: Prelaunch</div>
+                <div id="game-time">Time: --:-- GMT</div>
+            </div>
+        </div>
+
+   <nav id="top-nav">
+            <button id = "goHome">Home</button>
+            <div class="dropdown">
+                <button id="activities-btn" class="dropbtn">Activities</button>
+                <div class="dropdown-content">
+                    <button>Fight</button>
+                    <button>-</button>
+                    <button>-</button>
+                    <button>-</button>
+                </div>
+            </div>
+            <button id="work">Work</button>
+            <div class="dropdown">
+                <button id="markets-btn" class="dropbtn">Markets</button>
+                    <div class="dropdown-content">
+                        <button>Local Market</button>
+                        <button>Global Market</button>
+                        <button>Financial Market</button>
+                        <button>Stock Market</button>
+                    </div>
+                </div>
+            <button>Government</button>
+            <button>Companies</button>
+            <button id="logout">Logout</button>
+        </nav>
+        <nav id="top-nav-right">
+            <button id="help">Help</button>
+            <button id="wiki">Wiki</button>
+            <button id="account-panel">Account</button>
+        </nav>
+
+   
+        <div id="statsPanel">
+            <div>
+                <span class="statLabel">Timer:</span>
+                <span class="statValue" id="timerValue">0<span> Seconds</span></span>
+            </div>
+        </div>
+
+
+
+    </header>
+    <aside id="profile-nav">
+        <img class = "profile-picture" src = "../assets/images/DefaultProfile.jfif" width="250px" height="250px">
+        <h3 id = "username">YoungKrypt</h3>
+        <ul>
+            <li>Energy: 100%</li>
+            <li>Health: 100/100</li>
+            <li>Armor: 0/100</li>
+            <li>Level: 1</li>
+            <li>Work Ratings: 0 / 1000</li>
+            <li>Nationality: Canadian</li>
+            <li>Money: $0.00</li>
+            <li>Credits: 0</li>
+        </ul>
+        <br>
+        <hr>
+        <br>
+        <!-- SIDEBAR -->
+        <div id="side-nav">
+            <h3>Character</h3>
+            <ul>
+                <li><a href = "stats.html">Stats</a></li>
+                <li><a href = "inventory.html">Inventory</a></li>
+                <li><a href = "myCompanies.html">Companies</a></li>
+                <li><a href = "education.html">Education</a></li>
+                <li>Skills</li>
+                <li>Currencies</li>
+                <li>Assets</li>
+            </ul>
+        </div>
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main id="content">
+        <div class = "main-headers">
+            <h3>Work</h3> <!-- JS will overwrite this -->
+            <p>Get hired and work for a hourly wage.</p>
+
+            <p>Time Left: <span id = "Work-Timer">00:00:00</span> Work Finished: <span id = "work-shift">00:00:00</span></p>
+        </div>
+        <div id="companies-list">
+
+            
+            <div class="company-card" data-company="callc" data-wage="15" data-duration="2">
+            <img class="company-picture" src="../assets/images/Companies/CallCenter.jpg" alt="Milk Farm">
+            
+            <h4 class="company-name">Call Center Rep</h4>
+            
+            <p class="company-wage">
+                Wage: <span class="wage-value">$2 CAD</span>
+            </p>
+            
+            <p class="company-duration">Duration: 2 Hours</p>
+
+            <button id = "WorkButton" class = "work-milk">Work</button>
+            </div>
+
+
+            <div class="company-card" data-company="milk" data-wage="15" data-duration="6">
+            <img class="company-picture" src="../assets/images/Companies/MilkFarm.jpg" alt="Milk Farm">
+            
+            <h4 class="company-name">Milk Farm</h4>
+            
+            <p class="company-wage">
+                Wage: <span class="wage-value">$5 CAD</span>
+            </p>
+            
+            <p class="company-duration">Duration: 6 Hours</p>
+
+            <button id = "WorkButton" class = "work-milk">Work</button>
+            </div>
+
+            <div class="company-card" data-company="lumber" data-wage="15" data-duration="6">
+            <img class="company-picture" src="../assets/images/Companies/LumberYard.jpg" alt="LumberYard">
+            
+            <h4 class="company-name">Lumber Yard</h4>
+            
+            <p class="company-wage">
+                Wage: <span class="wage-value">$5 CAD</span>
+            </p>
+            
+            <p class="company-duration">Duration: 6 Hours</p>
+
+            <button id = "WorkButton" class="work-lumber">Work</button>
+            </div>
+
+        </div>
+        <div id = "WorkButtons">
+            <button id = "createCompany-btn">Create Company</button>
+            <button id = "manageCompany-btn">Manage Company</button>
+        </div>
+    
+    </main>
+   
+
+</div>
+
+<footer>
+    Property of YoungKrypt in affiliation with HIVE
+</footer>
+
+</body>
+</html>
