@@ -1,12 +1,14 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Profit Kingdom v.0.005</title>
+    <title>3rd World</title>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/work.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../assets/images/Favicon.ico">
     <script src="js/core.js" defer></script>
+    <script src="js/index.js" defer></script>
     <script src="js/work.js" defer></script>
 </head>
 
@@ -89,14 +91,14 @@
         <div id="side-nav">
             <h3>Character</h3>
             <ul>
-                <li><a href = "stats.html">Stats</a></li>
+                 <li><a href = "stats.html">Stats</a></li>
                 <li><a href = "inventory.html">Inventory</a></li>
                 <li><a href = "myCompanies.html">Companies</a></li>
                 <li><a href = "education.html">Education</a></li>
-                <li>Skills</li>
+                <li>Perks</li>
                 <li>Currencies</li>
                 <li>Assets</li>
-            </ul>
+        </ul>
         </div>
     </aside>
 
@@ -123,11 +125,25 @@
             
             <p class="company-duration">Duration: 2 Hours</p>
 
-            <button id = "WorkButton" class = "work-milk">Work</button>
+            <button id = "WorkButton" class = "call-center">Work</button>
+            </div>
+
+            <div class="company-card" data-company="callc" data-wage="15" data-duration="2">
+            <img class="company-picture" src="../assets/images/Companies/Banker.jpg" alt="Milk Farm">
+            
+            <h4 class="company-name">Bamker</h4>
+            
+            <p class="company-wage">
+                Wage: <span class="wage-value">$25 CAD</span>
+            </p>
+            
+            <p class="company-duration">Duration: 12 Hours</p>
+
+            <button id = "WorkButton" class = "work-bank">Work</button>
             </div>
 
 
-            <div class="company-card" data-company="milk" data-wage="15" data-duration="6">
+            <div class="company-card" data-company="banker" data-wage="15" data-duration="6">
             <img class="company-picture" src="../assets/images/Companies/MilkFarm.jpg" alt="Milk Farm">
             
             <h4 class="company-name">Milk Farm</h4>

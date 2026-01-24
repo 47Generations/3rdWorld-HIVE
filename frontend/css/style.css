@@ -1,3 +1,4 @@
+
 * {
     font-family: 'Macondo', monospace;
     box-sizing: border-box;
@@ -5,20 +6,53 @@
     padding: 0;
 }
 
+html, body {
+  height: 100vh;
+}
+
 body {
     font-family: Arial, sans-serif;
     background-color: rgb(43, 36, 36);
     color:rgb(224, 206, 183);
-    min-height: 100vh;
+    padding: 0;
+    margin: 0;
 }
+
 
 /* MAIN GRID */
 #layout {
     display: grid;
     grid-template-columns: 300px 1fr;
-    grid-template-rows: auto 1fr;
+    grid-template-rows: auto auto; /* body can grow */
     min-height: 100vh;
+    margin: 0;
+    padding: 0;
 }
+
+#bodyLayout {
+    display: grid;
+    grid-template-columns: 300px 1fr 250px;
+    column-gap: 0;
+    width: 100%;
+    height: 100%;
+    min-height: 100vh;
+    align-items: stretch;   /* 👈 key */
+    grid-column: 1 / -1;  /* 🔥 THIS IS THE KEY */
+}
+
+main, aside {
+  margin: 0;
+}
+
+
+#profile-nav,
+#content,
+#right-sidebar {
+  align-self: stretch;
+}
+
+
+
 
 /* HEADER */
 header {
@@ -28,14 +62,10 @@ header {
     border-bottom: 1px solid #aaa;
 }
 
-#bodyLayout{
-    grid-column: 1 / 3;              /* ensure it spans under header */
-    display: grid;
-    grid-template-columns: minmax(300px, 300px) 1fr minmax(250px, 250px);
-    gap: 20px;
-    align-items: start;
-    align-items: stretch;            /* KEY: stretch items to row height */
-    min-height: 0;                   /* KEY: allow it to fit inside 1fr row */
+
+#logo {
+  width: 250px;
+  height: 250px; /* shrink logo height so Day/Time sits nicely */
 }
 
 
@@ -47,10 +77,7 @@ header {
   gap: 10px; /* space between logo and status */
 }
 
-#logo {
-  width: 250px;
-  height: 250px; /* shrink logo height so Day/Time sits nicely */
-}
+
 
 #game-status {
   display: flex;
@@ -81,54 +108,10 @@ header {
     opacity: 0.85;
 }
 
-#GameMap {
-    font-family: 'Macondo', monospace;
-    margin-left: 0px;
-    background-color: #333;
-    color: rgb(190, 158, 15);
-}
-
-#osrs {
-    font-family: 'Macondo', monospace;
-    margin-left: 0px;
-    background-color: #333;
-    color: rgb(190, 158, 15);
-}
-
-/* Buttons stay at the right edge */
-#top-nav {
-  display: flex;
-  gap: 2px;
-  align-items: flex-start; /* top-aligned with Day/Time */
-}
-
-#top-nav button {
-    font-family: 'Macondo', monospace; /* special font */
-    padding: 6px 10px;
-    background: #2c2c2c;
-    border: 1px solid #444;
-    color: #fff;
-    cursor: pointer;  
-}
-
-#top-nav-right button {
-    font-family: 'Macondo', monospace; /* special font */
-    padding: 6px 10px;
-    background: #2c2c2c;
-    border: 1px solid #444;
-    color: #fff;
-    cursor: pointer;
-}
-
-#top-nav button:hover{
-    background: #3a3a3a;
-}
-
-#top-nav-right button:hover{
-    background: #3a3a3a;
-}
 
 #profile-nav {
+    overflow-y: auto;
+    min-height: 0;
     border: 2px solid rgb(129, 129, 129);
     padding: 15px;
 }
@@ -151,6 +134,8 @@ header {
     grid-column: 1;
     border-right: none;
     
+    max-height: 100%;    /* Don't go taller than the layout */
+    overflow-y: auto;    /* Add scrollbar ONLY if needed */
 }
 
 #side-nav ul {
@@ -160,11 +145,12 @@ header {
 
 #side-nav li {
     font-family: 'Macondo', monospace; /* special font */
-
+    text-decoration: none;
     margin-bottom: 8px;
     cursor: pointer;
     width:100px;
 }
+
 /* MAIN CONTENT */
 #content {
     grid-column: 2;
@@ -174,19 +160,75 @@ header {
     min-width: 0;
 }
 
-
-#right-sidebar{
-    grid-column: 3;
-    width: 100%;
-    height: 100%;
+#right-sidebar {
+    display: flex;
+    flex-direction: column;
     border: 2px solid rgb(129, 129, 129);
     padding: 15px;
-    margin-left: 10px;
-    margin-right: 0px;
-    margin-bottom: 0px;
-    overflow: hidden;         /* or auto */
-    word-break: break-word;   /* prevents long text from stretching it */
+
+
+    height: 800px;               /* MUST exist */
 }
+
+
+/* header should NOT grow */
+#chat-header {
+  flex: 0 0 auto;
+}
+
+/* THIS is the scroll container */
+#chat-area {
+  flex: 1 1 auto;           /* takes remaining space */
+  min-height: 0;               /* 🚨 CRITICAL */
+  overflow-y: auto;
+}
+
+/* input stays pinned */
+#chatbox-prompt {
+  flex: 0 0 auto;
+}
+
+.chat-msg{
+  border: 1px solid #555;
+  padding: 8px;
+  border-radius: 6px;
+  background: rgba(0,0,0,0.15);
+}
+
+.chat-meta{
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 12px;
+  opacity: 0.9;
+  margin-bottom: 4px;
+}
+
+.chat-text{
+  font-size: 14px;
+  line-height: 1.3;
+  word-break: break-word;
+}
+
+
+#chat-form{
+  display: flex;
+  gap: 8px;
+  margin-top: 10px;
+  margin-bottom: 2px;
+}
+
+#chat-input{
+  flex: 1;
+  padding: 8px;
+}
+
+#chat-send{
+  padding: 8px 12px;
+  cursor: pointer;
+}
+
+
 
 
 button{
@@ -200,12 +242,6 @@ button{
 
 button:hover{
     background: #3a3a3a;
-}
-
-
-
-#side-nav li:hover{
-    background-color: rgb(190, 158, 15);
 }
 
 #loginPanel {
@@ -282,13 +318,6 @@ button:disabled {
     height: 250px;                /* same as logo height for visual balance */
 }
 
-/* LOGO fixed width */
-#logo {
-    width: 250px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-}
 
 /* TopNav flex grow */
 #top-nav {
@@ -313,346 +342,13 @@ button:disabled {
 
 }
 
-/* Stats Panel stacked vertically */
-#statsPanel {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 5px;
-    margin-left: 10px;
-    margin-right: 10px;
-    margin-bottom: 2px;      /* match TopNav distance from hr */
+li a{
+
+    text-decoration: none;
+    color: inherit;       /* inherit text color from parent */
+    display: block;       /* clickable like normal list item */
 }
 
-
-
-.statLabel {
-  font-family: 'Macondo', monospace; /* special font */
-  font-weight: bold;
+li a:hover {
+    text-decoration: none; /* or none if you prefer */
 }
-
-.statValue {
-  font-family: 'Macondo', monospace;
-  color: #FFD700; /* gold for numbers, optional */
-}
-
-
-#travel-ui {
-  position: fixed;
-  right: 10px;
-  bottom: 20px;
-  display: grid;
-  grid-template-columns: 60px 1fr 60px;
-  grid-template-rows: 60px 1fr 60px;
-  width: 320px;
-  margin: 20px auto;
-  gap: 8px;
-}
-
-#current-tile {
-    grid-column: 2;
-    grid-row: 2;
-    background: rgb(99, 95, 95);
-    border: 1px solid #444;
-    color: #fff;
-    padding: 12px;
-    border-radius: 10px;
-    text-align: center;
-}
-
-
-.dir-btn {
-    font-size: 22px;
-    border: none;
-    border-radius: 8px;
-    background: rgb(99, 95, 95);
-
-    color: #fff;
-    cursor: pointer;
-    transition: transform 0.1s, background 0.2s;
-}
-
-.dir-btn:hover {
-    background: rgb(58, 54, 54);
-    transform: scale(1.05);
-}
-
-.dir-btn:disabled {
-  opacity: 0.4;
-  cursor: not-allowed;
-}
-
-.north { grid-column: 2; grid-row: 1; }
-.south { grid-column: 2; grid-row: 3; }
-.west  { grid-column: 1; grid-row: 2; }
-.east  { grid-column: 3; grid-row: 2; }
-
-
-
-li a {
-  color: rgb(224, 206, 183); /* Or your default text color */
-  text-decoration: none; /* Removes the underline */
-}
-
-.inventory-container {
-  display: grid;
-  grid-template-columns: repeat(5, 1fr);
-  grid-template-rows: repeat(20, 1fr);
-  gap: 5px;
-}
-
-.inventory-slot {
-  position: relative;
-  background-color: rgb(99,95,95);
-  border: 1px solid #ddd;
-  aspect-ratio: 1 / 1;
-  min-height: 40px;
-}
-.inventoryItem {
-  display: flex;
-  align-items: center;
-  gap: 8px;
-  padding: 4px;
-}
-
-.itemIcon {
-  width: 60%;
-  height: 60%;
-  margin-right: 10%;
-  margin-left: 10%;
-  margin-top: 10%;
-  image-rendering: pixelated;
-}
-
-.itemName {
-    margin-left: 20%;
-    margin-bottom: 10%;
-    font-weight: bold;
-}
-
-.itemQty {
-    margin-left: 5px;
-    margin-bottom: 10%;
-    color: #daa40f;
-}
-
-.stats-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr); /* 3 columns */
-    gap: 8px;
-    margin-top: 10px;
-}
-
-.stats-slot {
-    background-color: rgb(99,95,95);
-    border: 1px solid #ddd;
-    display: flex;
-    padding: 10px 12px;
-    gap: 10px;
-    font-size: x-large;
-    border-radius: 4px;
-    margin-bottom: 4px;
-}
-
-.stats-slot span {
-    font-weight: bold;
-    justify-content:space-around;
-    color: #dadd17; /* Level color */
-}
-
-.stats-slot .exp {
-    color: rgb(151, 16, 16);
-    font-weight: normal;
-    justify-content: right;
-    font-size: 0.85em;
-    margin-left: 2px; /* <-- Adds 2px space between Level and EXP */
-}
-
-.context-menu {
-  position: absolute;
-  background: #1b1b1b;
-  border: 1px solid #444;
-  border-radius: 6px;
-  padding: 4px 0;
-  width: 120px;
-  z-index: 9999;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.6);
-}
-
-.context-menu .menu-item {
-  padding: 8px 12px;
-  cursor: pointer;
-  color: #eee;
-}
-
-.context-menu .menu-item:hover {
-  background: #333;
-}
-
-.hidden {
-  display: none;
-}
-#companies-list{
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 👈 2 equal columns */
-    gap: 20px; /* space between company cards */
-}
-
-.company-card {
-    background: #1e1e1e;
-    border: 1px solid #333;
-    padding: 12px;
-    text-align: center;
-}
-.company-picture {
-    width: 225px;
-    height: 225px;
-}
-
-
-#company-management {
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 20px;
-  padding: 20px;
-}
-
-.panel {
-  background: #1b1b1b;
-  border: 1px solid #333;
-  border-radius: 8px;
-  padding: 15px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.4);
-}
-
-
-#company-selector {
-  grid-column: 1 / -1; /* span both columns */
-  display: flex;
-  align-items: center;
-  gap: 10px;
-}
-
-#companySelect {
-    font-family: 'Macondo', monospace;
-    padding: 6px;
-    font-size: 14px;
-}
-
-#companyName {
-    font-family: 'Macondo', monospace;
-    margin-bottom: 8px;
-    font-size: 20px;
-    color: #ffd966;
-}
-
-.panel p {
-  margin: 4px 0;
-}
-
-
-#workersList {
-    font-family: 'Macondo', monospace;
-    margin-top: 10px;
-    padding-left: 16px;
-}
-
-#workersList li {
-    font-family: 'Macondo', monospace;
-    margin-bottom: 4px;
-    font-size: 13px;
-}
-
-.panel input {
-    font-family: 'Macondo', monospace;
-    width: 100px;
-    padding: 5px;
-    margin-right: 5px;
-}
-
-.panel button {
-    font-family: 'Macondo', monospace;
-    padding: 6px 10px;
-    background: #2c2c2c;
-    border: 1px solid #444;
-    color: #fff;
-    cursor: pointer;
-}
-
-.panel button:hover {
-  background: #3a3a3a;
-}
-
-.center{
-    text-align: center;
-}
-
-#WorkButtons {
-    display: inline-flex;   /* 👈 KEY LINE */
-    gap: 10px;
-    padding: 15px;
-
-    background: #1b1b1b;
-    border: 1px solid #333;
-    border-radius: 8px;
-    box-shadow: 0 0 10px rgba(0,0,0,0.4);
-}
-
-
-
-#WorkButtons button{
-    padding: 6px 10px;
-    background: #2c2c2c;
-    border: 1px solid #444;
-    color: #fff;
-    cursor: pointer;
-}
-
-#WorkButtons button:hover{
-    background: #3a3a3a;
-}
-
-#Work-Timer{
-    font-family: 'Macondo', monospace; /* special font */
-    display: inline-flex;
-    padding: 6px;
-    margin-right: 10px;
-    align-items: right;
-    color: rgb(190, 158, 15);
-}
-
-#work-shift{
-    padding: 6px;
-    margin-right: 10px;
-    align-items: right;
-    color: rgb(190, 158, 15);
-}
-#canvas-menu {
-    position: absolute;
-    background: #222;
-    border: 1px solid #555;
-    color: white;
-    min-width: 160px;
-    z-index: 9999; /* critical */
-    font-family: 'Macondo', monospace; /* special font */
-}
-
-#canvas-menu.hidden {
-    display: none;
-}
-
-#canvas-menu .menu-item {
-    padding: 8px 12px;
-    cursor: pointer;
-}
-
-#canvas-menu .menu-item:hover {
-    background: #444;
-}
-
-
-.map_icon {
-    width: 200%;
-    height: 200%;
-}
-

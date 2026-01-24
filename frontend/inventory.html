@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>3rd World</title>
+    <title>Profit Kingdom</title>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="css/style.css"/>
     <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../assets/images/Favicon.ico">
     <script src="js/core.js" defer></script>
-    <script src="js/index.js" defer></script>
 </head>
 
 <body>
@@ -103,15 +102,27 @@
             </div>
         </aside>
 
-  
-
         <!-- MAIN CONTENT -->
         <main id="content">
-            <h3 id="regionName">-- TestHome --</h3> <!-- JS will overwrite this -->
-            <h4 id="districtName">District Name</h4>
-            <p id="storyText">Welcome to Profit Kingdom.</p>
-        </main>
+            <h3>Inventory:</h3> <!-- JS will overwrite this -->
+            <br>
+            <span id = "inventory-count">0/100</span>
+            <br><br>
+            <div id="inventory" class="inventory-container"></div>
+
         
+            <button id="wood">Chop Wood</button>
+            <button id="stone">Mine Stone</button>
+
+        
+
+            <div id="inventory-menu" class="context-menu hidden">
+                <div class="menu-item" data-action="use">Use</div>
+                <div class="menu-item" data-action="sell">Sell</div>
+                <div class="menu-item" data-action="drop">Drop</div>
+            </div>
+        </main>
+
         <aside id="right-sidebar">
             <div id = "chat-header">
                 <h3>World Chat:</h3>
@@ -132,11 +143,13 @@
            
 
         </aside>
+        
+
 
     </div>
-
 </div>
 </body>
+
 <footer>
     Property of YoungKrypt in affiliation with HIVE
 </footer>

@@ -1,0 +1,236 @@
+
+/* Stats Panel stacked vertically */
+#statsPanel {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 5px;
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 2px;      /* match TopNav distance from hr */
+}
+
+
+
+.statLabel {
+  font-family: 'Macondo', monospace; /* special font */
+  font-weight: bold;
+}
+
+.statValue {
+  font-family: 'Macondo', monospace;
+  color: #FFD700; /* gold for numbers, optional */
+}
+
+
+
+.inventory-container {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  grid-template-rows: repeat(25, 1fr);
+  gap: 5px;
+}
+
+.inventory-slot {
+  position: relative;
+  background-color: rgb(99,95,95);
+  border: 1px solid #ddd;
+  aspect-ratio: 1 / 1;
+  min-height: 40px;
+}
+.inventoryItem {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 4px;
+}
+
+.itemIcon {
+  width: 60%;
+  height: 60%;
+  margin-right: 10%;
+  margin-left: 10%;
+  margin-top: 10%;
+  image-rendering: pixelated;
+}
+
+.itemName {
+    margin-left: 20%;
+    margin-bottom: 10%;
+    font-weight: bold;
+}
+
+.itemQty {
+    margin-left: 5px;
+    margin-bottom: 10%;
+    color: #daa40f;
+}
+
+.stats-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 3 columns */
+    gap: 8px;
+    margin-top: 10px;
+}
+
+.stats-slot {
+    background-color: rgb(99,95,95);
+    border: 1px solid #ddd;
+    display: flex;
+    padding: 10px 12px;
+    gap: 10px;
+    font-size: x-large;
+    border-radius: 4px;
+    margin-bottom: 4px;
+}
+
+.stats-slot span {
+    font-weight: bold;
+    justify-content:space-around;
+    color: #dadd17; /* Level color */
+}
+
+.stats-slot .exp {
+    color: rgb(151, 16, 16);
+    font-weight: normal;
+    justify-content: right;
+    font-size: 0.85em;
+    margin-left: 2px; /* <-- Adds 2px space between Level and EXP */
+}
+
+#companies-list{
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 👈 2 equal columns */
+    gap: 20px; /* space between company cards */
+}
+
+.company-card {
+    background: #1e1e1e;
+    border: 1px solid #333;
+    padding: 12px;
+    text-align: center;
+}
+.company-picture {
+    width: 225px;
+    height: 225px;
+}
+
+
+#company-management {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+  padding: 20px;
+}
+
+.panel {
+  background: #1b1b1b;
+  border: 1px solid #333;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+
+#company-selector {
+  grid-column: 1 / -1; /* span both columns */
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+#companySelect {
+    font-family: 'Macondo', monospace;
+    padding: 6px;
+    font-size: 14px;
+}
+
+#companyName {
+    font-family: 'Macondo', monospace;
+    margin-bottom: 8px;
+    font-size: 20px;
+    color: #ffd966;
+}
+
+.panel p {
+  margin: 4px 0;
+}
+
+
+#workersList {
+    font-family: 'Macondo', monospace;
+    margin-top: 10px;
+    padding-left: 16px;
+}
+
+#workersList li {
+    font-family: 'Macondo', monospace;
+    margin-bottom: 4px;
+    font-size: 13px;
+}
+
+.panel input {
+    font-family: 'Macondo', monospace;
+    width: 100px;
+    padding: 5px;
+    margin-right: 5px;
+}
+
+.panel button {
+    font-family: 'Macondo', monospace;
+    padding: 6px 10px;
+    background: #2c2c2c;
+    border: 1px solid #444;
+    color: #fff;
+    cursor: pointer;
+}
+
+.panel button:hover {
+  background: #3a3a3a;
+}
+
+.center{
+    text-align: center;
+}
+
+#WorkButtons {
+    display: inline-flex;   /* 👈 KEY LINE */
+    gap: 10px;
+    padding: 15px;
+
+    background: #1b1b1b;
+    border: 1px solid #333;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.4);
+}
+
+
+
+#WorkButtons button{
+    padding: 6px 10px;
+    background: #2c2c2c;
+    border: 1px solid #444;
+    color: #fff;
+    cursor: pointer;
+}
+
+#WorkButtons button:hover{
+    background: #3a3a3a;
+}
+
+#Work-Timer{
+    font-family: 'Macondo', monospace; /* special font */
+    display: inline-flex;
+    padding: 6px;
+    margin-right: 10px;
+    align-items: right;
+    color: rgb(190, 158, 15);
+}
+
+#work-shift{
+    padding: 6px;
+    margin-right: 10px;
+    align-items: right;
+    color: rgb(190, 158, 15);
+}
+

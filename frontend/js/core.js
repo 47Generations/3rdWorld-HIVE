@@ -238,7 +238,7 @@ document.getElementById("locations").addEventListener("click", () => {
 
 const inventoryEl = document.getElementById("inventory");
 let inventory = {
-  slots: 100,
+  slots: 25,
   items: {
     lumber: 75,
     stone: 12

@@ -4,6 +4,7 @@
     <title>3rd World</title>
     <meta charset="UTF-8"/>
     <link rel="stylesheet" href="css/style.css"/>
+    <link rel="stylesheet" href="css/core.css"
     <link href="https://fonts.googleapis.com/css2?family=Macondo&display=swap" rel="stylesheet">
     <link rel="icon" type="image/png" href="../assets/images/Favicon.ico">
     <script src="js/core.js" defer></script>
@@ -16,7 +17,7 @@
 
     <!-- HEADER -->
     <header id="mainHeader">
-       <div id = "logo-and-status">
+        <div id = "logo-and-status">
             <div id="logo">
                 <a href = "index.html"><img src = "../assets/images/Logo.png" alt="Logo" width="250px" height="250px" /></a>
             </div>
@@ -60,7 +61,7 @@
             <button id="account-panel">Account</button>
         </nav>
 
-   
+
         <div id="statsPanel">
             <div>
                 <span class="statLabel">Timer:</span>
@@ -70,8 +71,8 @@
 
 
 
-    </header>
-    <div id = "bodyLayout">
+        </header>
+        <div id = "bodyLayout">
         <aside id="profile-nav">
             <img class = "profile-picture" src = "../assets/images/DefaultProfile.jfif" width="250px" height="250px">
             <h3 id = "username">YoungKrypt</h3>
@@ -103,15 +104,23 @@
             </div>
         </aside>
 
-  
 
         <!-- MAIN CONTENT -->
         <main id="content">
-            <h3 id="regionName">-- TestHome --</h3> <!-- JS will overwrite this -->
-            <h4 id="districtName">District Name</h4>
-            <p id="storyText">Welcome to Profit Kingdom.</p>
+        <h3>Stats:</h3> <!-- JS will overwrite this -->
+        <br>
+        <div id="stats" class="stats-container">
+            <div class="stats-slot">Strength: <span id="strengthLvl">1</span> <span id="strengthExp" class="exp">0/125</span></div>
+            <div class="stats-slot">Endurance: <span id="ENDLvl">1</span> <span id="ENDExp" class="exp">0/125</span></div>
+            <div class="stats-slot">Intelligence: <span id="INTLvl">1</span> <span id="INTExp" class="exp">0/125</span></div>
+            <div class="stats-slot">Labor: <span id="MANLvl">1</span> <span id="MANExp" class="exp">0/125</span></div>
+            <div class="stats-slot">Math: <span id="MathLvl">1</span> <span id="MathXP" class="exp">0/125</span></div>
+            <div class="stats-slot">Literature: <span id="LITLvl">1</span> <span id="LITExp" class="exp">0/125</span></div>
+            <div class="stats-slot">Science: <span id="SCILvl">1</span> <span id="SCIExp" class="exp">0/125</span></div>
+            <div class="stats-slot">History: <span id="HISTLvl">1</span> <span id="HISTExp" class="exp">0/125</span></div>
+        </div>
         </main>
-        
+
         <aside id="right-sidebar">
             <div id = "chat-header">
                 <h3>World Chat:</h3>
@@ -134,9 +143,9 @@
         </aside>
 
     </div>
-
 </div>
 </body>
+
 <footer>
     Property of YoungKrypt in affiliation with HIVE
 </footer>
